@@ -3,7 +3,7 @@ if (!token) {
   token = localStorage.token = Math.random().toString(36).substr(-8);
 }
 
-const url = "https://reactnd-books-api.udacity.com";
+const url = "https://reactnd-book.s-api.udacity.com";
 
 const headers = {
   Authorization: token,
@@ -44,3 +44,4 @@ export const searchBook = async (string) => {
   const data = await res.json();
   return data.books;
 };
+ 

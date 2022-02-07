@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import Movelist from "./components/Movelist";
+
 export default class App extends Component {
   render() {
     return (
@@ -27,17 +29,7 @@ export default class App extends Component {
                             }}
                           ></div>
                           <div className="shelf-shfiter">
-                            <select>
-                              <option value="move" disabled>
-                                Move to...
-                              </option>
-                              <option value="currentlyReading">
-                                Currently Reading
-                              </option>
-                              <option value="wantToRead">Want to Read</option>
-                              <option value="read">Read</option>
-                              <option value="none">None</option>
-                            </select>
+                            <Movelist />
                           </div>
                         </div>
                         <div className="book-title">
@@ -59,17 +51,8 @@ export default class App extends Component {
                             }}
                           ></div>
                           <div className="shelf-shfiter">
-                            <select>
-                              <option value="move" disabled>
-                                Move to...
-                              </option>
-                              <option value="currentlyReading">
-                                Currently Reading
-                              </option>
-                              <option value="wantToRead">Want to Read</option>
-                              <option value="read">Read</option>
-                              <option value="none">None</option>
-                            </select>
+                          <Movelist />
+
                           </div>
                         </div>
                         <div className="book-title">
@@ -81,6 +64,7 @@ export default class App extends Component {
                   </ol>
                 </div>
               </div>
+              
               <div className="shelf">
                 <h2 className="shelf-title">Want to Read</h2>
                 <div className="shelf-books">
@@ -98,17 +82,7 @@ export default class App extends Component {
                             }}
                           ></div>
                           <div className="shelf-shfiter">
-                            <select>
-                              <option value="move" disabled>
-                                Move to...
-                              </option>
-                              <option value="currentlyReading">
-                                Currently Reading
-                              </option>
-                              <option value="wantToRead">Want to Read</option>
-                              <option value="read">Read</option>
-                              <option value="none">None</option>
-                            </select>
+                            <Movelist />
                           </div>
                         </div>
                         <div className="book-title">JavaScript and JQuery</div>
@@ -116,6 +90,7 @@ export default class App extends Component {
                       </div>
                     </li>
                   </ol>
+                  
                 </div>
               </div>
               <div className="shelf">
@@ -135,17 +110,7 @@ export default class App extends Component {
                             }}
                           ></div>
                           <div className="shelf-shfiter">
-                            <select>
-                              <option value="move" disabled>
-                                Move to...
-                              </option>
-                              <option value="currentlyReading">
-                                Currently Reading
-                              </option>
-                              <option value="wantToRead">Want to Read</option>
-                              <option value="read">Read</option>
-                              <option value="none">None</option>
-                            </select>
+                           <Movelist />
                           </div>
                         </div>
                         <div className="book-title">Effective JavaScript</div>
