@@ -1,9 +1,30 @@
 import React, { Component } from "react";
 import "./App.css";
-import Movelist from "./components/Movelist";
+import { getAllBooks } from "./Api";
+//import Card from "./components/Card";
+//import Movelist from "./components/Movelist";
+import Shelfe from "./components/Shelfe";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { books: [] };
+  }
+
+  componentDidMount() {
+   // this.setState({ title: "Amal" });
+    //console.log(getAllBooks())
+    // getAllBooks().then(res =>console.log(res))
+    getAllBooks().then((res) => this.setState({ books: res }));
+    // this.setState({booksArr:getAllBooks()})
+  }
   render() {
+    console.log(this.state.books);
+    const shelvies = [
+      { name: "curently read", value: "currentlyReading" },
+      { name: "want to read", value: "wantToRead" },
+      { name: "read", value: "read" },
+    ];
     return (
       <div>
         <div className="books-list">
@@ -12,114 +33,13 @@ export default class App extends Component {
           </div>
           <div className="books-list_content">
             <div>
-              <div className="shelf">
-                <h2 className="shelf-title">Currently Reading</h2>
-                <div className="shelf-books">
-                  <ol className="books-box">
-                    <li>
-                      <div className="book">
-                        <div className="book-position">
-                          <div
-                            className="book-cover"
-                            style={{
-                              width: 128,
-                              height: 193,
-                              backgroundImage:
-                                'url("http://books.google.com/books/content?id=PXa2bby0oQ0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api")',
-                            }}
-                          ></div>
-                          <div className="shelf-shfiter">
-                            <Movelist />
-                          </div>
-                        </div>
-                        <div className="book-title">
-                          JavaScript: The Good Parts
-                        </div>
-                        <div className="book-author">Douglas Crockford</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="book">
-                        <div className="book-position">
-                          <div
-                            className="book-cover"
-                            style={{
-                              width: 128,
-                              height: 193,
-                              backgroundImage:
-                                'url("http://books.google.com/books/content?id=mDzDBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api")',
-                            }}
-                          ></div>
-                          <div className="shelf-shfiter">
-                          <Movelist />
 
-                          </div>
-                        </div>
-                        <div className="book-title">
-                          Eloquent JavaScript, 2nd Ed.
-                        </div>
-                        <div className="book-author">Marijn Haverbeke</div>
-                      </div>
-                    </li>
-                  </ol>
-                </div>
-              </div>
-              
-              <div className="shelf">
-                <h2 className="shelf-title">Want to Read</h2>
-                <div className="shelf-books">
-                  <ol className="books-box">
-                    <li>
-                      <div className="book">
-                        <div className="book-position">
-                          <div
-                            className="book-cover"
-                            style={{
-                              width: 128,
-                              height: 193,
-                              backgroundImage:
-                                'url("http://books.google.com/books/content?id=_uTRAwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api")',
-                            }}
-                          ></div>
-                          <div className="shelf-shfiter">
-                            <Movelist />
-                          </div>
-                        </div>
-                        <div className="book-title">JavaScript and JQuery</div>
-                        <div className="book-author">Jon Duckett</div>
-                      </div>
-                    </li>
-                  </ol>
-                  
-                </div>
-              </div>
-              <div className="shelf">
-                <h2 className="shelf-title">Read</h2>
-                <div className="shelf-books">
-                  <ol className="books-box">
-                    <li>
-                      <div className="book">
-                        <div className="book-position">
-                          <div
-                            className="book-cover"
-                            style={{
-                              width: 128,
-                              height: 193,
-                              backgroundImage:
-                                'url("http://books.google.com/books/content?id=Nz9iAwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api")',
-                            }}
-                          ></div>
-                          <div className="shelf-shfiter">
-                           <Movelist />
-                          </div>
-                        </div>
-                        <div className="book-title">Effective JavaScript</div>
-                        <div className="book-author">David Herman</div>
-                      </div>
-                    </li>
-                  </ol>
-                </div>
-              </div>
+
+              {shelvies.map((shelfe, index) => {
+                return <Shelfe key={index} title={shelfe.name} shelfeValue={shelfe.value} />;
+              })}
+
+             
             </div>
           </div>
           <div className="search-btn">

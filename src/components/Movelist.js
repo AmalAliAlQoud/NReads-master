@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
+
 export default class Movelist extends Component {
     render() {
         return (
-            <div>
+          <div>
+           
                 <select>
                               <option value="move" disabled>
                                 Move to...
@@ -16,7 +18,7 @@ export default class Movelist extends Component {
                               <option value="none">None</option>
                             </select>
 
-                            
+                                    
             </div>
         )
     }
